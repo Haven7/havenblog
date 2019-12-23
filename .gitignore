@@ -29,3 +29,4 @@ build/
 
 ### VS Code ###
 .vscode/
+vueblog/package-lock.json
