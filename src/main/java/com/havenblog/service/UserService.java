@@ -17,7 +17,7 @@ import org.springframework.util.DigestUtils;
 import java.util.List;
 
 /**
- * Created by sang on 2017/12/17.
+ * Created by haven.
  */
 @Service
 @Transactional
@@ -56,7 +56,7 @@ public class UserService implements UserDetailsService {
         user.setEnabled(true);//用户可用
         long result = userMapper.reg(user);
         //配置用户的角色，默认都是普通用户
-        String[] roles = new String[]{"2"};
+        String[] roles = new String[]{"1"};
         int i = rolesMapper.addRoles(roles, user.getId());
         boolean b = i == roles.length && result == 1;
         if (b) {

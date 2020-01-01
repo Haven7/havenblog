@@ -5,6 +5,7 @@ import com.havenblog.model.User;
 import com.havenblog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -38,8 +39,9 @@ public class LoginRegController {
         return new RespModel("error", "尚未登录，请登录!");
     }
 
-    @RequestMapping("/reg")
+    @RequestMapping(value = "/reg",method = RequestMethod.POST)
     public RespModel reg(User user) {
+
         int result = userService.reg(user);
         if (result == 0) {
             //成功
