@@ -54,8 +54,11 @@ public class UserService implements UserDetailsService {
         //插入用户,插入之前先对密码进行加密
         user.setPassword(DigestUtils.md5DigestAsHex(user.getPassword().getBytes()));
         user.setEnabled(true);//用户可用
+        user.setRegTime(user.getRegTime());
+        System.out.println("==========================="+user.getRegTime());
         long result = userMapper.reg(user);
         //配置用户的角色，默认都是普通用户
+
         String[] roles = new String[]{"1"};
         int i = rolesMapper.addRoles(roles, user.getId());
         boolean b = i == roles.length && result == 1;

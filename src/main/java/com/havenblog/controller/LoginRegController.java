@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Timestamp;
+
 /**
  * Created by haven.
  */
@@ -41,7 +43,10 @@ public class LoginRegController {
 
     @RequestMapping(value = "/reg",method = RequestMethod.POST)
     public RespModel reg(User user) {
-
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        user.setRegTime(new Timestamp(System.currentTimeMillis()));
+        System.out.println(user.getRegTime());
+        System.out.println("================"+timestamp+"====================================================");
         int result = userService.reg(user);
         if (result == 0) {
             //成功

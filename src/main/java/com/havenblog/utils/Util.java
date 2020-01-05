@@ -4,7 +4,7 @@ import com.havenblog.model.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 /**
- * Created by sang on 2017/12/20.
+ * Created by haven .
  */
 public class Util {
     public static User getCurrentUser() {
